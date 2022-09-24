@@ -1,5 +1,7 @@
 
 board = list(range(1, 10))
+win_cor = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6),
+           (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
 
 
 def dr_board(board):
@@ -20,7 +22,7 @@ def valid_input(player):
             print('Введите число')
             continue
         if player_ans >= 1 and player_ans <= 9:
-            if (str(board[player_ans-1]) not in 'XO'):
+            if board[player_ans-1] != 'X' and board[player_ans-1] != 'O':
                 board[player_ans-1] = player
                 valid = True
             else:
@@ -30,8 +32,6 @@ def valid_input(player):
 
 
 def check_win(board):
-    win_cor = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6),
-               (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
     for each in win_cor:
         if board[each[0]] == board[each[1]] == board[each[2]]:
             return board[each[0]]
