@@ -28,7 +28,7 @@ class TicTac:
                 else:
                     print('Клетка уже занята')
             else:
-                print('Введите числj от 1 до 9')
+                print('Введите число от 1 до 9')
 
     def check_win(self):
         for each in self.win_cor:
