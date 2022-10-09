@@ -58,5 +58,6 @@ class TicTac:
         self.dr_board()
 
 
-g = TicTac()
-g.game()
+if __name__ == '__main__':
+    g = TicTac()
+    g.game()
