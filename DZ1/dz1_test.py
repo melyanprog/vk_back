@@ -1,11 +1,13 @@
+"""Unit tests for TicTac"""
 import unittest
-from DZ1 import TicTac
+from dz1 import TicTac
 
 
 class TestTicTac(unittest.TestCase):
+    '''Testing class'''
 
-    def test_check_win(self):
-        tests = [
+    def setUp(self):
+        self.tests = [
             {
                 'board': ['X', 'X', 'X', 'O', 'X', 'O',
                           'X', 'O', 'O'],
@@ -37,16 +39,18 @@ class TestTicTac(unittest.TestCase):
                 'err': False,
                 'ret': False
             }
-
         ]
-        for t in tests:
-            b = TicTac()
-            b.board = t['board']
-            if t['err'] == True:
+
+    def test_check_win(self):
+        ''' check_win function test'''
+        for test in self.tests:
+            game = TicTac()
+            game.board = test['board']
+            if test['err']:
                 with self.assertRaises(Exception):
-                    b.check_win()
+                    game.check_win()
             else:
-                self.assertEqual(b.check_win(), t['ret'])
+                self.assertEqual(game.check_win(), test['ret'])
 
 
 if __name__ == "__main__":
